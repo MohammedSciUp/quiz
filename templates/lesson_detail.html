@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ lesson.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            text-align: right;
+            background-color: #E5C5BD;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .lesson-detail {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .lesson-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .lesson-image img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            border-radius: 15px;
+        }
+
+        .lesson-title {
+            color: #CF7041;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .lesson-content {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: #5E718B;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-detail">
+        <h2 class="lesson-title">{{ lesson.title }}</h2>
+        <div class="lesson-image">
+            <img src="{{ lesson.background_image.url }}" alt="{{ lesson.title }}">
+        </div>
+        <div class="lesson-content">
+            {{ lesson.content|safe }}
+        </div>
+    </div>
+</body>
+</html>
